@@ -7,23 +7,19 @@ int main(int argc, char*argv[])
 {
 	
 	FILE*fp;
-	char str[100];
-	int i;
+	char c;
 	
-	
-	
-	fp=fopen("sample.txt","w");
-	
-	
-	for(i=0;i<3;i++)
+	fp=fopen("sample.txt","r");
+	if (fp == NULL)
 	{
+		printf("파일을 못열음\n");
+		return 0;
+		
+	}
 
-	printf("input a word:");
-	scanf("%s",str); //& 필요없음. str자체가 주소(?) 
-	fprintf(fp,"%s\n",str);
+	while ((c=fgetc(fp)) != EOF){
+		putchar(c);
 	}
 	fclose(fp);
-		
-	
-	return 0;
 }
+
